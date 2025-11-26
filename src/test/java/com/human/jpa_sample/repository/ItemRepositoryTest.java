@@ -46,16 +46,18 @@ class ItemRepositoryTest {
     }
 
     @Test
-    @DisplayName("1. OR 조건 테스트 ")
-    public void findByItemNmOrItemDetailTest() {
+    @DisplayName("JPQL Query를 이용한 상품 조회 테스트")
+    public void findByItemDetailTest() {
         this.createItemTest();
-        List<Item> itemList = itemRepository
-                .findByItemNmOrItemDetail("테스트 상품1", "테스트 상품의 상세 설명5");
-
+        List<Item> itemList = itemRepository.findByItemDetail("테스트");
+        for (Item e : itemList) log.info("item : {}", e);
     }
 
-
-
-
-
+    @Test
+    @DisplayName("Native Query를 이용한 상품 조회 테스트")
+    public void findByItemDetailByNative() {
+        this.createItemTest();
+        List<Item> itemList = itemRepository.findByItemDetailByNative("상품의 상세");
+        for (Item e : itemList) log.info("item : {}", e);
+    }
 }

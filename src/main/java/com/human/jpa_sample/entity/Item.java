@@ -21,15 +21,20 @@ public class Item {
 
     @Column(nullable = false, length = 50)  // 길이를 50자로 제한
     private String itemNm; // 상품명
+
     @Column(nullable = false)
     private int price;     // 가격
+
     @Column(nullable = false)
     private int stockNumber;  // 재고 수량
+
     @Lob  // 대용량 데이터
     @Column(nullable = false)
     private String itemDetail;  // 상품 상세 설명
+
     @Enumerated(EnumType.STRING)  // 문자열 자체가 전달 됨
     private ItemSellStatus itemSellStatus;  // 상품 판매 상태, 열거형
+
     private LocalDateTime regTime;  // 등록 시간
     private LocalDateTime updateTime;  // 수정 시간
 }
