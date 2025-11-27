@@ -80,7 +80,7 @@ class OrderRepositoryTest {
 
         // 고아 객체 제거하기 : 위의 코드를 재 사용해서 조회를 해보고 이 후에 List에 대해 remove(인덱스)를 했을 때 delete쿼리가 날아가는 지 확인
         log.info("=============== 고아 객체 제거 로직 시작 ===============");
-        savedOrder.getOrderItems().remove(0);
+        savedOrder.getOrderItems().remove(0); //
         em.flush();
         em.clear();
         Order finalOrder = orderRepository.findById(order.getId())
