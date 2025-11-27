@@ -1,10 +1,7 @@
 package com.human.jpa_sample.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -15,6 +12,8 @@ import java.time.LocalDateTime;
 @Getter  // Getter Method 자동 생성
 @Setter  // Setter Method 자동 생성
 @NoArgsConstructor  // 매개변수가 없는 기본 생성자 생성
+@Builder  // 빌더 패턴 활성화
+@AllArgsConstructor // 모든 매개변수가 있는 생성자
 @ToString(exclude = "pwd")   // pwd 는 ToString 변환시 제외
 public class Member {
     @Id  // PK 역할을 하면 JPA에서는 반드시 있어여 함

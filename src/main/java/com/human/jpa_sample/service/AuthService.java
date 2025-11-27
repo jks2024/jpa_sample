@@ -44,11 +44,19 @@ public class AuthService {
     }
 
     // DTO -> Entity 로 변환하는 메서드
+//    private Member convertDtoToEntity(SignUpReqDto dto) {
+//        Member member = new Member();
+//        member.setEmail(dto.getEmail());
+//        member.setPwd(dto.getPwd());
+//        member.setName(dto.getName());
+//        return member;
+//    }
+    // DTO -> Entity 변환 (빌더 패턴 적용)
     private Member convertDtoToEntity(SignUpReqDto dto) {
-        Member member = new Member();
-        member.setEmail(dto.getEmail());
-        member.setPwd(dto.getPwd());
-        member.setName(dto.getName());
-        return member;
+        return Member.builder()
+                .email(dto.getEmail())
+                .pwd(dto.getPwd())
+                .name(dto.getName())
+                .build();
     }
 }
