@@ -45,4 +45,8 @@ public class BoardController {
     // 게시글 페이지네이션
 
     // 게시글 검색
+    @GetMapping("/search")
+    public ResponseEntity<List<BoardResDto>> searchBoards(@RequestParam String keyword) {
+        return ResponseEntity.ok(boardService.searchBoardList(keyword));
+    }
 }
